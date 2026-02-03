@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arduino Experiment Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="logo-container">
+        <img src="fossee_logo.png" alt="FOSSEE" class="fossee-logo">
+        <span class="logo-text">Arduino Experiment Editor</span>
+      </div>
+      <div class="controls">
+        <button id="btn-circuit" class="active">Circuit View</button>
+        <button id="btn-code">Code View</button>
+      </div>
+      <div class="actions">
+        <button id="btn-start" class="action-btn start" title="No simulation logic per requirements">Start
+          Simulation</button>
+        <button id="btn-stop" class="action-btn stop" title="No simulation logic per requirements">Stop
+          Simulation</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Palette (Left) -->
+      <aside class="palette">
+        <div class="palette-header">Components</div>
+        <div class="palette-item" draggable="true" data-type="arduino">
+          <div class="icon arduino-icon"></div>
+          <span>Arduino Uno</span>
+        </div>
+        <div class="palette-item" draggable="true" data-type="led">
+          <div class="icon led-icon"></div>
+          <span>LED</span>
+        </div>
+        <div class="palette-item" draggable="true" data-type="button">
+          <div class="icon button-icon"></div>
+          <span>Push Button</span>
+        </div>
+        <div class="instruction">
+          <p>Drag components onto the canvas.<br>
+            LED → D10+<br>
+            Button → D2+</p>
+        </div>
+      </aside>
+
+      <!-- Canvas (Center) -->
+      <main class="canvas-container">
+        <div id="canvas" class="canvas">
+          <div class="grid-bg"></div>
+          <svg id="wire-layer"></svg>
+          <!-- Components will be dropped here -->
+          <div id="drag-ghost" class="hidden"></div>
+        </div>
+      </main>
+
+      <!-- Code Panel (Right) -->
+      <aside class="code-panel hidden">
+        <div class="code-header">Generated Code</div>
+        <pre id="code-display"><code class="language-cpp">// Drag components to generate code...</code></pre>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
